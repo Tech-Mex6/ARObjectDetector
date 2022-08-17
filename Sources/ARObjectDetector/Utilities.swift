@@ -56,6 +56,16 @@ extension Foundation.Bundle {
                 return bundle
             }
         }
+        
+        guard let bundle = arObjectDetectionPod else {
+            fatalError("Unable to find bundle")
+        }
+        return bundle
         fatalError("unable to find bundle")
+    }()
+    
+    static var arObjectDetectionPod: Bundle? = {
+        let myBundle = Bundle(for: MLObjectDetection.self)
+        return myBundle
     }()
 }
