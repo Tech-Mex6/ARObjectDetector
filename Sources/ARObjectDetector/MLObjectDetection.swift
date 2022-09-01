@@ -96,8 +96,12 @@ class MLObjectDetection {
 
     /// URL of model assuming it was installed in the same bundle as this class
     class var urlOfModelInThisBundle : URL {
-        let bundle = Bundle.arObjectDetectionPod ?? Bundle.arObjectDetectorModule
-        return bundle.url(forResource: "MLObjectDetection", withExtension:"mlmodelc")!
+        if let bundle = Bundle.arObjectDetectionPod, let url = bundle.url(forResource: "MLObjectDetection", withExtension:"mlmodelc") {
+        return url
+        } else {
+            let bundle = Bundle.arObjectDetectorModule
+            return bundle.url(forResource: "MLObjectDetection", withExtension:"mlmodelc")
+        }
     }
 
     /**
