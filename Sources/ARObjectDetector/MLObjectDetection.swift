@@ -100,7 +100,7 @@ class MLObjectDetection {
         return url
         } else {
             let bundle = Bundle.arObjectDetectorModule
-            return bundle.url(forResource: "MLObjectDetection", withExtension:"mlmodelc")
+            return bundle.url(forResource: "MLObjectDetection", withExtension:"mlmodelc")!
         }
     }
 
